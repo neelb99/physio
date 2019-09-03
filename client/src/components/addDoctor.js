@@ -19,7 +19,7 @@ class AddDoctor extends Component {
             name: this.state.name,
             number: this.state.number
         }
-        axios.post('http://localhost:5000/doctors/add',doctor)
+        axios.post('/doctors/add',doctor)
             .then(res=>console.log(res.data));
     }
 

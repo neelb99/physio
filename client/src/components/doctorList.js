@@ -11,7 +11,7 @@ class DoctorList extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/doctors')
+        axios.get('/doctors')
             .then(res=>{
                 this.setState({doctors:res.data});
                 
