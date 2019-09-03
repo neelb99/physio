@@ -8,6 +8,7 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
+app.use(express.static(path.join(__dirname,"client","build")))
 app.use(cors());
 app.use(express.json());
 
@@ -19,7 +20,6 @@ mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true});
 const connection = mongoose.connection;
 connection.once('open',()=>console.log("DB connected"));
 
-app.use(express.static(path.join(__dirname,"client","build")))
 app.use('/patients',patientRouter);
 app.use('/appointments',appointmentRouter);
 app.use('/doctors',doctorRouter);
