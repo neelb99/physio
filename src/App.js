@@ -7,6 +7,8 @@ import PatientList from './components/patients-list.js';
 import AddPatient from './components/addPatient.js';
 import AddAppointment from './components/addAppointment.js';
 import AppointmentList from './components/appointmentList.js';
+import AddDoctor from './components/addDoctor.js';
+import DoctorList from './components/doctorList.js';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path = "/addpatient" component={AddPatient}></Route>
         <Route path = "/addappointment" component={AddAppointment}></Route>
         <Route path = "/appointments" component={AppointmentList}></Route>
+        <Route path="/adddoctor" component={AddDoctor}></Route>
+        <Route path="/doctors" component={DoctorList}></Route>
     </Router>
   );
 }

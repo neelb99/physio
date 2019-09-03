@@ -16,7 +16,7 @@ class PatientList extends Component {
         return (
             <div>
                 {this.state.patients.map(patient=>{
-                    return <p>{patient.name}</p>
+                    return <p>{patient.name}  {patient.number}  {patient.address}</p>
                 })}
             </div>
         );

@@ -13,7 +13,8 @@ class AddAppointment extends Component {
             time: '',
             patients: [],
             doctorappointments: [],
-            selectedDate: ''
+            selectedDate: '',
+            doctors: []
         }
         this.onChangePatient = this.onChangePatient.bind(this);
         this.onChangeDoctor = this.onChangeDoctor.bind(this);
@@ -33,6 +34,8 @@ class AddAppointment extends Component {
             .then(res=>{
                 this.setState({doctorappointments:res.data});
             })
+        axios.get('http://localhost:5000/doctors')
+            .then(res=>this.setState({doctors:res.data,doctor:res.data[0].name}));
     }
 
     onChangePatient(e){
@@ -74,6 +77,16 @@ class AddAppointment extends Component {
             )
     }
 
+    getDoctors(){
+        return(
+            <select name="doctor" onChange={this.onChangeDoctor}>
+                {this.state.doctors.map(doctor=>{
+                    return <option key={doctor._id} value={doctor.name}>{doctor.name}</option>
+                })}
+            </select>
+        );
+    }
+
     getList(){
         return(
             <div>
@@ -94,7 +107,9 @@ class AddAppointment extends Component {
                 Patient:
                 {this.getPatients()}
                 
-                <br />Doctor:<input type="text" name="doctor" onChange={this.onChangeDoctor}></input><br/>
+                <br />
+                Doctor: {this.getDoctors()}
+                <br/>
                 Date:<DatePicker value={this.state.date} name = "date" onChange={this.onChangeDate}/><br />
                 Time:<input type="text" onChange={this.onChangeTime}></input><br />
                 <input type="submit"></input>

@@ -11,6 +11,8 @@ class Navbar extends Component {
                     <Link to='/patients' className="nav-link nav-item">Patients</Link>
                     <Link to='/addpatient' className="nav-link nav-item" >Add Patient</Link> 
                     <Link to='/addappointment' className="nav-link nav-item" >Add Appointment</Link> 
+                    <Link to='/adddoctor' className="nav-link nav-item" >Add Doctor</Link> 
+                    <Link to='/doctors' className="nav-link nav-item" >Doctors</Link> 
                 </div>
             </nav>
         );
