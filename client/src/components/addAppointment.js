@@ -28,14 +28,21 @@ class AddAppointment extends Component {
         this.setState({selectedDate:(this.state.date.getFullYear().toString() + '-'+ ('0'+(this.state.date.getMonth()+1).toString()).slice(-2) + '-'+('0'+this.state.date.getDate().toString()).slice(-2))});
         axios.get('/api/patients')
             .then(res=>{
-                this.setState({patients:res.data, patient:res.data[0].name});
+                const patientlist=res.data;
+                const firstpatientname = (res.data.length>0)?res.data[0].name:null;
+                this.setState({patients:patientlist,patient:firstpatientname})
             })
         axios.get('/api/appointments')
             .then(res=>{
                 this.setState({doctorappointments:res.data});
             })
         axios.get('/api/doctors')
-            .then(res=>this.setState({doctors:res.data,doctor:res.data[0].name}));
+            .then(res=>{
+                const doctorlist=res.data;
+                const firstdocname = (res.data.length>0)?res.data[0].name:null;
+                this.setState({doctors:doctorlist,doctor:firstdocname})
+            });
+        
     }
 
     onChangePatient(e){

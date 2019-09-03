@@ -11,6 +11,11 @@ router.route('/:id').get((req,res)=>{
         .then(foundpatient=>res.json(foundpatient));
 });
 
+router.route('/delete/:id').get((req,res)=>{
+    patient.findByIdAndDelete(req.params.id)
+        .then(()=>res.json("Deleted"))
+})
+
 router.route('/add').post((req,res)=>
 {
     const name = req.body.name;

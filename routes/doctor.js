@@ -16,6 +16,10 @@ router.route('/add').post((req,res)=>{
         .catch((err)=>console.log(err));
 })
 
+router.route('/delete/:id').get((req,res)=>{
+    doctor.findByIdAndDelete(req.params.id)
+        .then(found=>res.json(found))
+})
 
 
 module.exports = router;

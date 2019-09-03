@@ -21,4 +21,9 @@ router.route('/add').post((req,res)=>{
         .then(()=>res.json("Appointment created"));
 })
 
+router.route('/delete/:id').get((req,res)=>{
+    appointment.findByIdAndDelete(req.params.id)
+        .then(()=>res.json("Deleted"))
+})
+
 module.exports = router;

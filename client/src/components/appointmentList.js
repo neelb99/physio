@@ -31,13 +31,18 @@ class AppointmentList extends Component {
         this.setState({date:(date.getFullYear().toString() + '-'+ ('0'+(date.getMonth()+1).toString()).slice(-2) + '-'+('0'+date.getDate().toString()).slice(-2)), caldate:date});
     }
 
+    delete(id){
+        axios.get('/api/appointments/delete/'+id)
+            .then(res=>console.log(res.data));
+    }
+
     getAppointments(){
         return(
         <div>
         {this.state.appointments.map(appointment=>{
             if(this.state.date === appointment.date.substring(0,10))
             return(
-                <p key={appointment._id}>{appointment.patient}  {appointment.doctor}  {appointment.date.substring(0,10)}  {appointment.time}<br /></p>
+                <p key={appointment._id}>{appointment.patient}  {appointment.doctor}  {appointment.date.substring(0,10)}  {appointment.time}<button onClick={()=>this.delete(appointment._id)}>Cancel</button><br /></p>
                 
             );
         })}
