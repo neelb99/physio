@@ -4,6 +4,7 @@ const cors = require('cors');
 const patientRouter = require('./routes/patient')
 const appointmentRouter = require('./routes/appointment');
 const doctorRouter = require('./routes/doctor');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -21,5 +22,10 @@ connection.once('open',()=>console.log("DB connected"));
 app.use('/patients',patientRouter);
 app.use('/appointments',appointmentRouter);
 app.use('/doctors',doctorRouter);
+app.use(express.static(path.join(__dirname,"client","build")))
+
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname,"client","build","index.html"));
+});
 
 app.listen(PORT,()=>console.log("Server is Running"));
