@@ -19,10 +19,11 @@ mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true});
 const connection = mongoose.connection;
 connection.once('open',()=>console.log("DB connected"));
 
+app.use(express.static(path.join(__dirname,"client","build")))
 app.use('/patients',patientRouter);
 app.use('/appointments',appointmentRouter);
 app.use('/doctors',doctorRouter);
-app.use(express.static(path.join(__dirname,"client","build")))
+
 
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"client","build","index.html"));
