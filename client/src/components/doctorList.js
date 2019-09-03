@@ -11,7 +11,7 @@ class DoctorList extends Component {
     }
 
     componentDidMount(){
-        axios.get('/doctors')
+        axios.get('/api/doctors')
             .then(res=>{
                 this.setState({doctors:res.data});
                 

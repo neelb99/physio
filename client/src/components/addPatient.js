@@ -34,7 +34,7 @@ class AddPatient extends Component {
             number:this.state.number,
             address:this.state.address
         };
-        axios.post('/patients/add',patient)
+        axios.post('/api/patients/add',patient)
             .then(res=>console.log(res.data));
         this.setState({name:'',number:0,address:''});
     }

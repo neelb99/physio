@@ -20,13 +20,13 @@ mongoose.connect(uri,{useNewUrlParser:true, useCreateIndex:true});
 const connection = mongoose.connection;
 connection.once('open',()=>console.log("DB connected"));
 
+
+app.use('/api/patients',patientRouter);
+app.use('/api/appointments',appointmentRouter);
+app.use('/api/doctors',doctorRouter);
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname,"client","build","index.html"));
 });
-app.use('/patients',patientRouter);
-app.use('/appointments',appointmentRouter);
-app.use('/doctors',doctorRouter);
-
 
 
 

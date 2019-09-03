@@ -21,7 +21,7 @@ class AppointmentList extends Component {
 
     componentDidMount(){
         this.setState({date:(this.state.caldate.getFullYear().toString() + '-'+ ('0'+(this.state.caldate.getMonth()+1).toString()).slice(-2) + '-'+('0'+this.state.caldate.getDate().toString()).slice(-2))});
-        axios.get('/appointments')
+        axios.get('/api/appointments')
             .then(res=>{
                 this.setState({appointments:res.data})
             })

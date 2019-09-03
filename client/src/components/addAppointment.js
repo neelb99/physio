@@ -26,15 +26,15 @@ class AddAppointment extends Component {
 
     componentDidMount(){
         this.setState({selectedDate:(this.state.date.getFullYear().toString() + '-'+ ('0'+(this.state.date.getMonth()+1).toString()).slice(-2) + '-'+('0'+this.state.date.getDate().toString()).slice(-2))});
-        axios.get('/patients')
+        axios.get('/api/patients')
             .then(res=>{
                 this.setState({patients:res.data, patient:res.data[0].name});
             })
-        axios.get('/appointments')
+        axios.get('/api/appointments')
             .then(res=>{
                 this.setState({doctorappointments:res.data});
             })
-        axios.get('/doctors')
+        axios.get('/api/doctors')
             .then(res=>this.setState({doctors:res.data,doctor:res.data[0].name}));
     }
 
@@ -62,7 +62,7 @@ class AddAppointment extends Component {
             date: this.state.date,
             time: this.state.time
         };
-        axios.post('/appointments/add',appointment)
+        axios.post('/api/appointments/add',appointment)
             .then(res=>console.log(res.data));
         console.log(appointment);
     }

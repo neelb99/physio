@@ -9,7 +9,7 @@ class PatientList extends Component {
         }
     }
     componentDidMount(){
-        axios.get('/patients')
+        axios.get('/api/patients')
             .then(res=>this.setState({patients:res.data}));
     }
     render() { 
