@@ -21,7 +21,9 @@ class DoctorList extends Component {
     delete(id){
         console.log('/api/doctors/delete/'+id);
         axios.get('/api/doctors/delete/'+id)
-            .then(res=>console.log(res.data));
+            .then(res=>{
+                this.setState({doctors:this.state.doctors.filter(doc=> doc._id!==id)})
+            });
     }
 
      getList(){

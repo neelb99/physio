@@ -15,7 +15,9 @@ class PatientList extends Component {
 
     delete(id){
         axios.get('/api/patients/delete/'+id)
-            .then(res=>console.log(res.data));
+        .then(res=>{
+            this.setState({patients:this.state.patients.filter(pat=> pat._id!==id)})
+        });
     }
 
     render() { 

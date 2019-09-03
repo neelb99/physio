@@ -33,7 +33,9 @@ class AppointmentList extends Component {
 
     delete(id){
         axios.get('/api/appointments/delete/'+id)
-            .then(res=>console.log(res.data));
+        .then(res=>{
+            this.setState({appointments:this.state.appointments.filter(app=> app._id!==id)})
+        });
     }
 
     getAppointments(){

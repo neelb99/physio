@@ -20,6 +20,7 @@ function App() {
         <Route path = "/appointments" component={AppointmentList}></Route>
         <Route path="/adddoctor" component={AddDoctor}></Route>
         <Route path="/doctors" component={DoctorList}></Route>
+        {/* <Route path="/view" component={ViewDoctor}></Route> */}
     </Router>
   );
 }

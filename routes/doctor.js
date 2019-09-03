@@ -7,6 +7,12 @@ router.route('/').get((req,res)=>{
         .catch((err)=>console.log(err));
 })
 
+router.route('/view/:id').get((req,res)=>{
+    doctor.findById(req.params.id)
+        .then(doctors=>res.json(doctors))
+        .catch((err)=>console.log(err));
+})
+
 router.route('/add').post((req,res)=>{
     const name = req.body.name;
     const number = req.body.number;
