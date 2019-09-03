@@ -6,10 +6,11 @@ class Navbar extends Component {
         return (
             <nav className="navbar navbar-expand navbar-dark bg-primary">
                 <div className ="navbar-nav">
-                    <Link to='/' className="navbar-brand">Navbar</Link>
-                    <Link to='/' className="nav-item nav-link">Home</Link>
+                    <Link to='/' className="navbar-brand">Home</Link>
+                    <Link to='/appointments' className="nav-item nav-link">Appointments</Link>
                     <Link to='/patients' className="nav-link nav-item">Patients</Link>
                     <Link to='/addpatient' className="nav-link nav-item" >Add Patient</Link> 
+                    <Link to='/addappointment' className="nav-link nav-item" >Add Appointment</Link> 
                 </div>
             </nav>
         );

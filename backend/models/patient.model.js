@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
-const patientSchema = new Schema({
+const patientSchema = new mongoose.Schema({
     name:{type:String, required:true, minlength:1, unique:true},
     address:{type:String},
-    number:{type:Number, minlength:10, required:true}
+    number:{type:Number, minlength:10,maxlength:10, required:true}
 });
 
 const Patient = mongoose.model('Patient',patientSchema);

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const patientRouter = require('./routes/patient')
+const appointmentRouter = require('./routes/appointment');
 require('dotenv').config();
 
 const app = express();
@@ -17,5 +18,6 @@ const connection = mongoose.connection;
 connection.once('open',()=>console.log("DB connected"));
 
 app.use('/patients',patientRouter);
+app.use('/appointments',appointmentRouter);
 
 app.listen(PORT,()=>console.log("Server is Running"));

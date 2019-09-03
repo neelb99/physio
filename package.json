@@ -9,9 +9,11 @@
     "express": "^4.17.1",
     "mongoose": "^5.6.11",
     "react": "^16.9.0",
+    "react-date-picker": "^7.8.1",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1"
+    "react-scripts": "3.1.1",
+    "react-time-picker": "^3.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
