@@ -31,7 +31,7 @@ class DoctorList extends Component {
      getList(){
        
         return(
-            <table class="table table-striped text-center">
+            <table className="table table-striped text-center">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>

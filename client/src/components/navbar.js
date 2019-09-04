@@ -9,8 +9,8 @@ class Navbar extends Component {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
+                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div className="navbar-nav">
                         <Link to='/appointments' className="nav-item nav-link">Appointments</Link>
                         <Link to='/patients' className="nav-link nav-item">Patients</Link>
                         {/* <Link to='/addpatient' className="nav-link nav-item" >Add Patient</Link>  */}

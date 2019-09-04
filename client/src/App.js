@@ -10,12 +10,14 @@ import AppointmentList from './components/appointmentList.js';
 import AddDoctor from './components/addDoctor.js';
 import DoctorList from './components/doctorList.js';
 import ViewDoctor from './components/viewDoctor';
+import Home from './components/Home';
 
 function App() {
   return (
     <Router>
         
         <Navbar />
+        <Route path = "/" exact component={Home}></Route>
         <Route path = "/patients" component={PatientList}></Route>
         <Route path = "/addpatient" component={AddPatient}></Route>
         <Route path = "/addappointment" component={AddAppointment}></Route>

@@ -54,7 +54,9 @@ class AddAppointment extends Component {
     }
 
     onChangeDate(date){
+        
         this.setState({date:date, selectedDate:(date.getFullYear().toString() + '-'+ ('0'+(date.getMonth()+1).toString()).slice(-2) + '-'+('0'+date.getDate().toString()).slice(-2))})
+        
     }
 
     onChangeTime(e){
@@ -66,12 +68,13 @@ class AddAppointment extends Component {
         const appointment = {
             patient: this.state.patient,
             doctor: this.state.doctor,
-            date: this.state.date,
+            date: this.state.selectedDate,
             time: this.state.time
         };
         axios.post('/api/appointments/add',appointment)
             .then(res=>console.log(res.data));
         window.location = '/appointments';
+        
     }
 
     getPatients(){
@@ -96,7 +99,7 @@ class AddAppointment extends Component {
 
     getList(){
         return(
-            <table class="table table-striped text-center">
+            <table className="table table-striped text-center">
                 <thead>
                 <tr>
                     <th scope="col">Patient</th>
@@ -126,11 +129,11 @@ class AddAppointment extends Component {
                 <DatePicker value={this.state.date} name = "date" onChange={this.onChangeDate}/>
                 <form onSubmit={this.onSubmit} className="text-center">
                     <div className="form-group">
-                        <label for="patient">Patient</label>
+                        <label>Patient</label>
                         {this.getPatients()}
                     </div> 
                     <div className="form-group">
-                        <label for="doctor">Doctor</label>
+                        <label>Doctor</label>
                         {this.getDoctors()}
                     </div> 
                     

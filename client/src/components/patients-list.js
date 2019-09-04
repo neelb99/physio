@@ -28,7 +28,7 @@ class PatientList extends Component {
             <div className="container-fluid" style={props}>
                 <h2>Patients</h2>
                 <Link to="/addpatient"><button className="btn btn-success">Add Patient</button></Link>
-                <table class="table table-striped text-center">
+                <table className="table table-striped text-center">
                     <thead>
                     <tr>
                         <th scope="col">Name</th>

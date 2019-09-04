@@ -38,7 +38,7 @@ class AppointmentList extends Component {
 
     getAppointments(){
         return(
-        <table class="table table-striped text-center">
+        <table className="table table-striped text-center">
             <thead>
                 <tr>
                     <th scope="col">Patient</th>
@@ -49,7 +49,7 @@ class AppointmentList extends Component {
             </thead>
             <tbody>
             {this.state.appointments.map(appointment=>{
-                if(this.state.date === appointment.date.substring(0,10))
+                if(this.state.date === appointment.date)
                 return(
                     <tr key={appointment._id}>
                         <td>{appointment.patient}</td>  

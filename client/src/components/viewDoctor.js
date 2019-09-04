@@ -39,12 +39,18 @@ class ViewDoctor extends Component {
             })
     }
 
+    delete(id){
+        axios.get('/api/appointments/delete/'+id)
+        .then(res=>{
+            this.setState({appointments:this.state.appointments.filter(app=> app._id!==id)})
+        });
+    }
 
 
     getList(){
         return(
             
-            <table class="table table-striped text-center">
+            <table className="table table-striped text-center">
                 <thead>
                 <tr>
                     <th scope="col">Patient</th>
@@ -54,7 +60,7 @@ class ViewDoctor extends Component {
                 </thead>
                 <tbody>
                     {this.state.appointments.map(appointment=>{
-                        if(appointment.doctor===this.state.doctor.name && this.state.date === appointment.date.substring(0,10))
+                        if(appointment.doctor===this.state.doctor.name && this.state.date === appointment.date)
                         return(
                             <tr key={appointment._id}>
                                 <td>{appointment.patient}</td>  
