@@ -71,7 +71,7 @@ class AddAppointment extends Component {
         };
         axios.post('/api/appointments/add',appointment)
             .then(res=>console.log(res.data));
-        console.log(appointment);
+        window.location = '/appointments';
     }
 
     getPatients(){
