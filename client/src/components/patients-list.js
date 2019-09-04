@@ -24,7 +24,7 @@ class PatientList extends Component {
         return (
             <div>
                 {this.state.patients.map(patient=>{
-                    return <p>{patient.name}  {patient.number}  {patient.address}<button onClick={()=>this.delete(patient._id)}>Delete</button></p>
+                    return <p key={patient._id}>{patient.name}  {patient.number}  {patient.address}<button onClick={()=>this.delete(patient._id)}>Delete</button></p>
                 })}
             </div>
         );

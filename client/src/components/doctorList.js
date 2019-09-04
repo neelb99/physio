@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class DoctorList extends Component {
     constructor(props){
@@ -31,7 +32,7 @@ class DoctorList extends Component {
         return(
             <div>
                 {this.state.doctors.map(doctor=>{
-                    return <p key={doctor._id}>{doctor.name}   {doctor.number} <button onClick={()=>this.delete(doctor._id)}>Delete</button><br /></p>
+                    return <p key={doctor._id}>{doctor.name}   {doctor.number} <Link to={'/doctors/view/'+doctor._id} params={{id:doctor._id}}>View</Link><button onClick={()=>this.delete(doctor._id)}>Delete</button><br /></p>
                 })}
             </div>
         );

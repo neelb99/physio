@@ -9,6 +9,7 @@ import AddAppointment from './components/addAppointment.js';
 import AppointmentList from './components/appointmentList.js';
 import AddDoctor from './components/addDoctor.js';
 import DoctorList from './components/doctorList.js';
+import ViewDoctor from './components/viewDoctor';
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
         <Route path = "/addappointment" component={AddAppointment}></Route>
         <Route path = "/appointments" component={AppointmentList}></Route>
         <Route path="/adddoctor" component={AddDoctor}></Route>
-        <Route path="/doctors" component={DoctorList}></Route>
-        {/* <Route path="/view" component={ViewDoctor}></Route> */}
+        <Route path="/doctors" exact component={DoctorList}></Route>
+        <Route path="/doctors/view" component={ViewDoctor}></Route>
     </Router>
   );
 }
