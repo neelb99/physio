@@ -21,6 +21,7 @@ class AddDoctor extends Component {
         }
         axios.post('api/doctors/add',doctor)
             .then(res=>console.log(res.data));
+        window.location='/doctors';
     }
 
     onChangeName(e){
@@ -35,11 +36,14 @@ class AddDoctor extends Component {
 
     render() { 
         return(
-            <form onSubmit={this.onSubmit}>
-                Name:<input type="text" name="name" onChange={this.onChangeName}></input><br/>
-                Number: <input type="number" name="number" onChange={this.onChangeNumber}></input><br />
-                <input type="submit"></input>
-            </form>
+            <div className="container-fluid">
+                <h2>Add Doctor</h2>
+                <form onSubmit={this.onSubmit} className="text-center">
+                    <input type="text" name="name" onChange={this.onChangeName} className="form-control" placeholder="Name"></input><br/>
+                    <input type="number" name="number" onChange={this.onChangeNumber} className="form-control" placeholder="Number"></input>
+                    <input type="submit" className="btn btn-primary"></input>
+                </form>
+            </div>
         );
 }
 }

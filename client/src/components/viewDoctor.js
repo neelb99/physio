@@ -42,15 +42,38 @@ class ViewDoctor extends Component {
 
     getList(){
         return(
-            this.state.appointments.map(appointment=>{
-                if(appointment.doctor===this.state.doctor.name && this.state.date === appointment.date.substring(0,10))
-                    return <p key={appointment._id}>{appointment.patient}  {appointment.doctor}  {appointment.date.substring(0,10)}  {appointment.time}<button onClick={()=>this.delete(appointment._id)}>Cancel</button><br /></p>
-            })
+            <table class="table table-striped text-center">
+                <thead>
+                <tr>
+                    <th scope="col">Patient</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Cancel</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {this.state.appointments.map(appointment=>{
+                        if(appointment.doctor===this.state.doctor.name && this.state.date === appointment.date.substring(0,10))
+                        return(
+                            <tr key={appointment._id}>
+                                <td>{appointment.patient}</td>  
+                                <td>{appointment.time}</td>
+                                <td><button className="btn btn-danger"onClick={()=>this.delete(appointment._id)}>Cancel</button></td>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
         );
     }
     
   render() { 
-        return <div><DatePicker value={this.state.caldate} onChange={this.updateDate} /><br/>{this.getList()}</div>;
+        return (
+        <div className="container-fluid">
+            <h2>{this.state.doctor.name}</h2>
+            <DatePicker value={this.state.caldate} onChange={this.updateDate} />
+            {this.getList()}
+        </div>
+        );
     }
 }
  

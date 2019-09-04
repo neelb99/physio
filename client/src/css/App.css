@@ -5,3 +5,39 @@
 .navbar-dark .navbar-nav .nav-link:hover {
     color: rgba(255, 255, 255, 1)!important;
 }
+
+.navbar{
+    width:100vw;
+    margin-bottom: 30px;
+}
+
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 1px;
+}
+
+table{
+    margin-top:30px;
+}
+
+.react-date-picker{
+    margin-top:30px; 
+}
+
+.btn-success,.btn-primary{
+    margin-top:30px;
+}
+
+h2,form{
+    margin-top:30px;
+}
+
+form .react-date-picker{
+    margin-bottom:30px;
+}
+
+
+

@@ -14,6 +14,7 @@ import ViewDoctor from './components/viewDoctor';
 function App() {
   return (
     <Router>
+        
         <Navbar />
         <Route path = "/patients" component={PatientList}></Route>
         <Route path = "/addpatient" component={AddPatient}></Route>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/adddoctor" component={AddDoctor}></Route>
         <Route path="/doctors" exact component={DoctorList}></Route>
         <Route path="/doctors/view" component={ViewDoctor}></Route>
+        
     </Router>
   );
 }

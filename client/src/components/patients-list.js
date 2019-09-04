@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class PatientList extends Component {
     constructor(props){
@@ -22,10 +23,31 @@ class PatientList extends Component {
 
     render() { 
         return (
-            <div>
-                {this.state.patients.map(patient=>{
-                    return <p key={patient._id}>{patient.name}  {patient.number}  {patient.address}<button onClick={()=>this.delete(patient._id)}>Delete</button></p>
-                })}
+            <div className="container-fluid">
+                <h2>Patients</h2>
+                <Link to="/addpatient"><button className="btn btn-success">Add Patient</button></Link>
+                <table class="table table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Number</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {this.state.patients.map(patient=>{
+                        return(
+                            <tr key={patient._id}>
+                                <td>{patient.name}</td>  
+                                <td>{patient.number}</td>
+                                <td>{patient.address}</td>
+                                <td><button className="btn btn-danger"onClick={()=>this.delete(patient._id)}>Delete</button></td>
+                            </tr>
+                        );
+                    })}
+                    </tbody>
+                </table>
             </div>
         );
     }

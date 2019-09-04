@@ -30,11 +30,28 @@ class DoctorList extends Component {
      getList(){
        
         return(
-            <div>
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Number</th>
+                        <th scope="col">View</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
                 {this.state.doctors.map(doctor=>{
-                    return <p key={doctor._id}>{doctor.name}   {doctor.number} <Link to={'/doctors/view/'+doctor._id} params={{id:doctor._id}}>View</Link><button onClick={()=>this.delete(doctor._id)}>Delete</button><br /></p>
+                    return(
+                        <tr key={doctor._id}>
+                            <td>{doctor.name}</td>  
+                            <td>{doctor.number}</td>
+                            <td><Link to={'/doctors/view/'+doctor._id} params={{id:doctor._id}}><button className="btn btn-primary">View</button></Link></td>
+                            <td><button className="btn btn-danger"onClick={()=>this.delete(doctor._id)}>Delete</button></td>
+                        </tr>
+                    );
                 })}
-            </div>
+                </tbody>
+            </table>
         );
     }
 
@@ -42,7 +59,9 @@ class DoctorList extends Component {
 
     render() { 
         return (
-            <div>
+            <div className="container-fluid">
+            <h2>Doctors</h2>
+            <Link to="/adddoctor"><button className="btn btn-success">Add Doctor</button></Link>
             {this.getList()}
             </div>
           );

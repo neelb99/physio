@@ -76,7 +76,7 @@ class AddAppointment extends Component {
 
     getPatients(){
         return(
-        <select name="patient" onChange={this.onChangePatient}>
+        <select className="form-control">name="patient" onChange={this.onChangePatient}>
         {this.state.patients.map(patient=>{
             return <option key={patient.name} value={patient.name}>{patient.name}</option>
         })}
@@ -86,7 +86,7 @@ class AddAppointment extends Component {
 
     getDoctors(){
         return(
-            <select name="doctor" onChange={this.onChangeDoctor}>
+            <select className="form-control" name="doctor" onChange={this.onChangeDoctor}>
                 {this.state.doctors.map(doctor=>{
                     return <option key={doctor._id} value={doctor.name}>{doctor.name}</option>
                 })}
@@ -96,31 +96,45 @@ class AddAppointment extends Component {
 
     getList(){
         return(
-            <div>
-                {this.state.doctorappointments.map(doctorappointment=>{
-                    if(doctorappointment.doctor===this.state.doctor && doctorappointment.date.substring(0,10) === this.state.selectedDate)
-                        return(
-                            <p key={doctorappointment._id}>{doctorappointment.patient}  {doctorappointment.doctor}  {doctorappointment.date.substring(0,10)}  {doctorappointment.time}<br /></p>
-                        );
-                })}
-            </div>
+            <table class="table table-striped text-center">
+                <thead>
+                <tr>
+                    <th scope="col">Patient</th>
+                    <th scope="col">Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {this.state.doctorappointments.map(appointment=>{
+                        if(appointment.doctor===this.state.doctor && appointment.date.substring(0,10) === this.state.selectedDate)
+                            return(
+                                <tr key={appointment._id}>
+                                    <td>{appointment.patient}</td>  
+                                    <td>{appointment.time}</td>
+                                </tr>
+                            );
+                        })}
+                </tbody>
+            </table>
         )
     }
 
     render() { 
         return(
-            <div>
-            <form onSubmit={this.onSubmit}>
-                Patient:
-                {this.getPatients()}
-                
-                <br />
-                Doctor: {this.getDoctors()}
-                <br/>
-                Date:<DatePicker value={this.state.date} name = "date" onChange={this.onChangeDate}/><br />
-                Time:<input type="text" onChange={this.onChangeTime}></input><br />
-                <input type="submit"></input>
-            </form>
+            <div className="container-fluid">
+                <h2>Add Appointment</h2>
+                <form onSubmit={this.onSubmit} className="text-center">
+                    <div className="form-group">
+                        <label for="patient">Patient</label>
+                        {this.getPatients()}
+                    </div> 
+                    <div className="form-group">
+                        <label for="doctor">Doctor</label>
+                        {this.getDoctors()}
+                    </div> 
+                    <DatePicker value={this.state.date} name = "date" onChange={this.onChangeDate}/>
+                    <input placeholder="Time" className="form-control" type="text" onChange={this.onChangeTime}></input>
+                    <input type="submit" className="btn btn-primary"></input>
+                </form>
                 {this.getList()}
             </div>
         );
