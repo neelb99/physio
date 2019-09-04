@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-date-picker';
+import {Spring} from 'react-spring/renderprops';
 
 class ViewDoctor extends Component {
     constructor(props){
@@ -42,6 +43,7 @@ class ViewDoctor extends Component {
 
     getList(){
         return(
+            
             <table class="table table-striped text-center">
                 <thead>
                 <tr>
@@ -68,11 +70,13 @@ class ViewDoctor extends Component {
     
   render() { 
         return (
-        <div className="container-fluid">
+            <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >{props=>
+            <div className="container-fluid" style={props}>
             <h2>{this.state.doctor.name}</h2>
             <DatePicker value={this.state.caldate} onChange={this.updateDate} />
             {this.getList()}
-        </div>
+        </div>}
+        </Spring>
         );
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import {Spring} from 'react-spring/renderprops'
 
 class PatientList extends Component {
     constructor(props){
@@ -23,7 +24,8 @@ class PatientList extends Component {
 
     render() { 
         return (
-            <div className="container-fluid">
+            <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >{props=>
+            <div className="container-fluid" style={props}>
                 <h2>Patients</h2>
                 <Link to="/addpatient"><button className="btn btn-success">Add Patient</button></Link>
                 <table class="table table-striped text-center">
@@ -48,7 +50,8 @@ class PatientList extends Component {
                     })}
                     </tbody>
                 </table>
-            </div>
+            </div>}
+            </Spring>
         );
     }
 }

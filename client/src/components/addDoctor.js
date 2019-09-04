@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { NONAME } from 'dns';
+import {Spring} from 'react-spring/renderprops';
 
 class AddDoctor extends Component {
     constructor(props){
@@ -42,7 +42,8 @@ class AddDoctor extends Component {
 
     render() { 
         return(
-            <div className="container-fluid">
+            <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >{props=>
+            <div className="container-fluid" style={props}>
                 <h2>Add Doctor</h2>
                 <p style={{display:this.state.display, color:'red'}}>Enter valid Number</p>
                 <form onSubmit={this.onSubmit} className="text-center">
@@ -50,7 +51,8 @@ class AddDoctor extends Component {
                     <input required minlength="10" maxlength="10" minLength="10" type="number" name="number" onChange={this.onChangeNumber} className="form-control" placeholder="Number"></input>
                     <input type="submit" className="btn btn-primary"></input>
                 </form>
-            </div>
+            </div>}
+            </Spring>
         );
 }
 }

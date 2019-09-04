@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-date-picker';
 import {Link} from 'react-router-dom';
+import {Spring} from 'react-spring/renderprops'
 
 
 class AppointmentList extends Component {
@@ -65,12 +66,14 @@ class AppointmentList extends Component {
 
     render() { 
         return (
-            <div className="container-fluid">
+            <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >{props=>
+            <div className="container-fluid" style={props}>
                 <h2>Appointments</h2>
                 <Link to="/addappointment"><button className="btn btn-success">New Appointment</button></Link>
                 <DatePicker value={this.state.caldate} onChange={this.updateDate} />
                 {this.getAppointments()}
-            </div>
+            </div>}
+            </Spring>
         );
     }
 }

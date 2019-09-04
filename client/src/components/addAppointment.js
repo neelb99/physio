@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-date-picker';
-
+import {Spring} from 'react-spring/renderprops';
 
 class AddAppointment extends Component {
     constructor(props){
@@ -120,7 +120,8 @@ class AddAppointment extends Component {
 
     render() { 
         return(
-            <div className="container-fluid">
+            <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >{props=>
+            <div className="container-fluid" style={props}>
                 <h2>Add Appointment</h2>
                 <DatePicker value={this.state.date} name = "date" onChange={this.onChangeDate}/>
                 <form onSubmit={this.onSubmit} className="text-center">
@@ -138,7 +139,8 @@ class AddAppointment extends Component {
                 </form>
                 
                 {this.getList()}
-            </div>
+            </div>}
+            </Spring>
         );
     }
 }

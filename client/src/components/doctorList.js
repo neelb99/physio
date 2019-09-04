@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import {Spring} from 'react-spring/renderprops';
 
 class DoctorList extends Component {
     constructor(props){
@@ -42,12 +43,14 @@ class DoctorList extends Component {
                 <tbody>
                 {this.state.doctors.map(doctor=>{
                     return(
-                        <tr key={doctor._id}>
+                        
+                        <tr key={doctor._id} >
                             <td>{doctor.name}</td>  
                             <td>{doctor.number}</td>
                             <td><Link to={'/doctors/view/'+doctor._id} params={{id:doctor._id}}><button className="btn btn-primary">View</button></Link></td>
                             <td><button className="btn btn-danger"onClick={()=>this.delete(doctor._id)}>Delete</button></td>
                         </tr>
+                        
                     );
                 })}
                 </tbody>
@@ -59,11 +62,13 @@ class DoctorList extends Component {
 
     render() { 
         return (
-            <div className="container-fluid">
+            <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >{props=>
+            <div className="container-fluid" style={props}>
             <h2>Doctors</h2>
             <Link to="/adddoctor"><button className="btn btn-success">Add Doctor</button></Link>
             {this.getList()}
-            </div>
+            </div>}
+            </Spring>
           );
     }
 }
