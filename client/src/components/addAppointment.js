@@ -122,6 +122,7 @@ class AddAppointment extends Component {
         return(
             <div className="container-fluid">
                 <h2>Add Appointment</h2>
+                <DatePicker value={this.state.date} name = "date" onChange={this.onChangeDate}/>
                 <form onSubmit={this.onSubmit} className="text-center">
                     <div className="form-group">
                         <label for="patient">Patient</label>
@@ -131,10 +132,11 @@ class AddAppointment extends Component {
                         <label for="doctor">Doctor</label>
                         {this.getDoctors()}
                     </div> 
-                    <DatePicker value={this.state.date} name = "date" onChange={this.onChangeDate}/>
+                    
                     <input placeholder="Time" className="form-control" type="text" onChange={this.onChangeTime}></input>
                     <input type="submit" className="btn btn-primary"></input>
                 </form>
+                
                 {this.getList()}
             </div>
         );

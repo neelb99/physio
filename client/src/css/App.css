@@ -27,17 +27,25 @@ table{
     margin-top:30px; 
 }
 
-.btn-success,.btn-primary{
+.btn-success,form .btn-primary{
     margin-top:30px;
-}
-
-h2,form{
-    margin-top:30px;
-}
-
-form .react-date-picker{
     margin-bottom:30px;
 }
 
+h2{
+    margin-top:30px;
+    margin-bottom: 30px;
+}
 
+.react-date-picker{
+    margin-bottom:30px;
+}
 
+form input{
+    margin-top:30px;
+}
+
+body,html{
+    max-width: 100vw;
+    overflow-x: hidden;
+}

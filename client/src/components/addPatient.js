@@ -7,7 +7,8 @@ class AddPatient extends Component {
         this.state = {
             name: '',
             number: 0,
-            address: ''
+            address: '',
+            display:'none'
         }
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeNumber = this.onChangeNumber.bind(this);
@@ -34,6 +35,10 @@ class AddPatient extends Component {
             number:this.state.number,
             address:this.state.address
         };
+        if(patient.number.length !==10){
+            this.setState({display:'block'});
+            return;
+        }
         axios.post('/api/patients/add',patient)
             .then(res=>console.log(res.data));
         this.setState({name:'',number:0,address:''});
@@ -44,9 +49,10 @@ class AddPatient extends Component {
         return(
             <div className="container-fluid">
                 <h2>Add Patient</h2>
+                <p style={{display:this.state.display, color:'red'}}>Enter valid Number</p>
                 <form onSubmit={this.onSubmit} className="text-center">
-                    <input className="form-control" placeholder="Name" type="text" name="name" onChange={this.onChangeName}></input>
-                    <input className="form-control" placeholder="Number" type="number" name="number" onChange={this.onChangeNumber}></input>
+                    <input required className="form-control" placeholder="Name" type="text" name="name" onChange={this.onChangeName}></input>
+                    <input required className="form-control" placeholder="Number" type="number" name="number" onChange={this.onChangeNumber}></input>
                     <input className="form-control" placeholder="Address" type="text" name="address" onChange={this.onChangeAddress}></input>
                     <input type="submit" className="btn btn-primary"></input>
                 </form>
