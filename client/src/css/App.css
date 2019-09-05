@@ -69,7 +69,7 @@ body,html{
 }
 
 .jumbotron{
-    margin:0;
+    margin:5px;
     opacity: 0.8;
     display: flex;
     flex-direction: column;
