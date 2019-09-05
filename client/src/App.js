@@ -12,10 +12,9 @@ import DoctorList from './components/doctorList.js';
 import ViewDoctor from './components/viewDoctor';
 import Home from './components/Home';
 
-function App() {
+const App = ()=>{
   return (
     <Router>
-        
         <Navbar />
         <Route path = "/" exact component={Home}></Route>
         <Route path = "/patients" component={PatientList}></Route>
@@ -25,7 +24,6 @@ function App() {
         <Route path="/adddoctor" component={AddDoctor}></Route>
         <Route path="/doctors" exact component={DoctorList}></Route>
         <Route path="/doctors/view" component={ViewDoctor}></Route>
-        
     </Router>
   );
 }

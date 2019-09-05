@@ -20,8 +20,7 @@ router.route('/add').post((req,res)=>
 {
     const name = req.body.name;
     const number = req.body.number;
-    const address = req.body.address;
-    const newPatient = patient({name,address,number});
+    const newPatient = patient({name,number});
     newPatient.save()
         .then(()=>res.json("Patient added"));
 })

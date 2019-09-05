@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {useSpring, animated} from 'react-spring';
 
 
@@ -11,7 +11,7 @@ function Home(){
 
 
     return (
-    <div class="container-fluid">
+    <div className="container-fluid">
         <animated.h1 style={props} onMouseOver={()=>console.log("hi")}>Hi</animated.h1>
         <button onClick={()=>props.opacity.value}>Click me</button>
     </div>
