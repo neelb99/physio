@@ -54,7 +54,7 @@ const ViewDoctor =props=>{
     return (
         <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >
             {props=>
-                <div className="container-fluid" style={props}>
+                <div className="container-fluid-date" style={props}>
                     <h2>{doctorName}</h2>
                     <DatePicker value={calDate} onChange={handleDateChange} />
                     {getAppointments()}

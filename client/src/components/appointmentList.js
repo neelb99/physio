@@ -55,7 +55,7 @@ const AppointmentList = ()=>{
     return (
         <Spring from={{opacity:0}} to={{opacity:1}} delay="500" >
             {props=>
-                <div className="container-fluid" style={props}>
+                <div className="container-fluid-date" style={props}>
                     <h2>Appointments</h2>
                     <Link to="/addappointment"><button className="btn btn-success">New Appointment</button></Link>
                     <DatePicker value={calDate} onChange={handleDateChange} />
