@@ -1,19 +1,24 @@
 import React from 'react';
-import {useSpring, animated} from 'react-spring';
+import {FaCalendarAlt,FaAddressBook,FaPlusSquare} from "react-icons/fa";
+import {IoMdClipboard} from 'react-icons/io'
 
 
 
 function Home(){
-    const props = useSpring({
-        opacity:1,
-        from: {opacity:0}
-    })
-
-
     return (
-    <div className="container-fluid">
-        <animated.h1 style={props} onMouseOver={()=>console.log("hi")}>Hi</animated.h1>
-        <button onClick={()=>props.opacity.value}>Click me</button>
+    <div className="container-fluid-home bg-primary">
+        <div className="jumbotron">
+            <h1>Appointment System</h1>
+            <p><FaCalendarAlt/> View individual and group schedules at a glance</p>
+            <br /> 
+            <p><IoMdClipboard/> Store appointment history for future reference</p>
+            <br />
+            <p><FaAddressBook/> Maintain a record of doctors and patients</p>
+            <br />
+            <p><FaPlusSquare/> Add or remove appointments with ease</p>
+            <br />
+            
+        </div>
     </div>
     );
 }
