@@ -7,7 +7,7 @@ import {IoMdClipboard} from 'react-icons/io'
 function Home(){
     return (
     <div className="container-fluid-home bg-primary">
-        <div className="jumbotron">
+        <div className="jumbotron text-center">
             <h1>Appointment System</h1>
             <p><FaCalendarAlt/> View individual and group schedules at a glance</p>
             <br /> 
